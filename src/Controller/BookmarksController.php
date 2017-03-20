@@ -10,6 +10,19 @@ use App\Controller\AppController;
  */
 class BookmarksController extends AppController
 {
+    public function tags()
+    {
+        $tags = $this->request->getParam('pass');
+
+        $bookmarks = $this->Bookmarks->find('tagged', [
+            'tags' => $tags
+        ]);
+
+        $this->set([
+            'bookmarks' => $bookmarks,
+            'tags' => $tags
+        ]);
+    }
 
     /**
      * Index method
