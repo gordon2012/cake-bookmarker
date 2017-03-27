@@ -43,6 +43,7 @@ class AppController extends Controller
 
         $this->loadComponent('Flash');
         $this->loadComponent('Auth', [
+            'authorize' => 'Controller',
             'authenticate' => [
                 'Form' => [
                     'fields' => [
@@ -66,6 +67,12 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
         //$this->loadComponent('Csrf');
+    }
+
+
+    public function isAuthorized($user)
+    {
+        return false;
     }
 
     /**
