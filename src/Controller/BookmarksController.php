@@ -44,7 +44,7 @@ class BookmarksController extends AppController
         $bookmark = $this->Bookmarks->get($id);
         if($bookmark->user_id == $user['id'])
         {
-            true;
+            return true;
         }
         return parent::isAuthorized($user);
     }
